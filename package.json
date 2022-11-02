@@ -1,0 +1,30 @@
+{
+  "name": "tlhousso",
+  "version": "1.0.0",
+  "description": "app for making schoolproject hhs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "milk",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "gulp-uglifycss": "^1.1.0",
+    "normalize.css": "^8.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plokplok123/tlhousso.git"
+  },
+  "bugs": {
+    "url": "https://github.com/plokplok123/tlhousso/issues"
+  },
+  "homepage": "https://github.com/plokplok123/tlhousso#readme"
+}
