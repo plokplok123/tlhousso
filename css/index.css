@@ -1,7 +1,4 @@
-body {
-  background-color: black;
+iframe[seamless] {
+  border: none;
 }
-
-P {
-  color: white;
-}
+/*# sourceMappingURL=index.css.map */
