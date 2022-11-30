@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TL-HOUSSO</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/nav.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/usercontrol.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          
+</head>
+
+<body>
+    <nav id="navbar" class="">
+        <div class="nav-wrapper">
+          <!-- Navbar Logo -->
+          <div class="logo">
+            <!-- Logo Placeholder for Inlustration -->
+            <a><i class="fa fa-angellist nav__logo"></i> TL-Housso</a>
+          </div>
+    <!-- Navbar Links -->
+          <ul id="menu">
+            <li><a class="nav__link-text" href="welcomeuser.html">Home</a></li>
+          </ul>
+        </div>
+      </nav>
+    <!-- Menu Icon -->
+      <div class="menuIcon">
+        <span class="icon icon-bars"></span>
+        <span class="icon icon-bars overlay"></span>
+      </div>
+    <div class="overlay-menu">
+        <ul id="menu">
+            <li><a class="nav__link-text"href="welcomeuser.html">Home</a></li>
+          </ul>
+      </div>
+      <!-- ////////////////////////////////////////////////////////////////////////// -->
+<p id="counter"></p>
+      
+      <table class="table">
+         <thead>
+
+            <tr             <style> .namelll{margin-top: 10%;
+            }
+            </style>><th class="namelll">Name</th></tr>
+         </thead>
+         <tbody id="countries">
+         </tbody>
+      </table>
+<script src="js/nav.js"></script>
+<script>
+    var app = new function() {
+    
+      this.el = document.getElementById('countries');
+    
+      this.ciudades = [
+          "Huiskamer", "slaapkamer",
+          "gang", "badkamer"];	
+    
+      this.Count = function(data) {
+          var el   = document.getElementById('counter');
+          var name = 'country';
+            // data = cantidad  Ej. 17 ciudades
+          if (data) {
+              if (data > 1) {
+                 name = 'ciudades';
+               }
+               el.innerHTML = data + ' ' + name ;
+           } else {
+               el.innerHTML = 'No ' + name;
+           }
+      };
+      
+      this.FetchAll = function() {
+          var data2 = '';
+          if (this.ciudades.length > 0) {
+              for (i = 0; i < this.ciudades.length; i++) {
+                data2 += `<tr>
+                  <td> ${ (+i+1) } </td>
+                  <td> ${this.ciudades[i]} </td>
+                  <td><button onclick="app.Edit(' ${i} ')">Edit
+                      </button></td>
+                  <td><button onclick="app.Delete(' ${i} ')">Delete
+                      </button></td></tr>`;
+              }
+           }
+    
+          this.Count(this.ciudades.length);
+          return this.el.innerHTML = data2;
+      };
+    
+      this.Add = function () {
+        el = document.getElementById('add-name');
+        // Get the value
+        var country = el.value;
+    
+        if (country) {
+          // Add the new value
+          this.countries.push(country.trim());
+          // Reset input value
+          el.value = '';
+          // Dislay the new list
+          this.FetchAll();
+        }
+      };
+    
+      this.Edit = function (item) {
+        var el = document.getElementById('edit-name');
+        // Display value in the field
+        el.value = this.countries[item];
+        // Display fields
+        document.getElementById('spoiler')
+                   .style.display = 'block';
+        self = this;
+    
+        document.getElementById('saveEdit').onsubmit = function() {
+          // Get value
+          var country = el.value;
+    
+          if (country) {
+            // Edit value
+            self.countries.splice(item, 1, country.trim());
+            // Display the new list
+            self.FetchAll();
+            // Hide fields
+            CloseInput();
+          }
+        }
+      };
+    
+      this.Delete = function (item) {
+        // Delete the current row
+        this.countries.splice(item, 1);
+        // Display the new list
+        this.FetchAll();
+      };
+      
+    }
+    
+    app.FetchAll();
+    
+    function CloseInput() {
+      document.getElementById('spoiler').style.display = 'none';
+    }
+    
+    var tbody = document.getElementById("countries");
+    tbody.addEventListener("click",function(ele){
+        
+        //var index = this.closest("tr").index();
+        alert("Click" );
+        console.log( typeof ele );
+        var eletr = ele.toElement.closest("tr");
+        console.log( eletr );
+        
+        
+    })
+    
+    </script>
+              
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
