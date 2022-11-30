@@ -16,16 +16,17 @@
   .container {
     margin: auto;
     width: 95%;
-    margin-top:10%
+    margin-top:10%;
 }
   
-button, .login{
+button, .login, h3{
     position: absolute;
       top:0;
       bottom: 0;
       left: 0;
       right: 0;
-      margin: auto;}
+      margin: auto;
+    }
 
   button{
     background-color: #76b852;
@@ -34,4 +35,3 @@ button, .login{
     border: 0;
     color: black;
 }
-  
